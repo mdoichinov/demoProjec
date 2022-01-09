@@ -1,0 +1,40 @@
+<div>
+  <div class="PostTitleHolder">
+    <div class="BackBtn">
+      <button type="button" class="btn btn-secondary" [routerLink]='["/posts"]'><i class="bi bi-arrow-left-square Hover"></i> Back</button>
+    </div>
+    <h4 class="PostTitle">{{post?.postTitle}}</h4>
+  </div>
+  <div class="PostBody">{{post?.postBody}}</div>
+ </div>
+<div class="container CommentSectionHolder">
+  <div class="row">
+      <div class="col-sm-5 col-md-6 col-12 pb-4">
+          <h5>Comments</h5>
+          <div *ngFor="let comment of commentArray" class="Comment" class="comment mt-4 text-justify float-left">
+              <i class="bi bi-trash Hover DeleteIcon" hover-class="DeleteIconHover" (click)='onDeleteComment(comment.id)'></i>
+              <h5>{{comment.authorEmail}}</h5><br>
+              <p>{{comment.comment}}</p>
+          </div>
+      </div>
+      <div class="col-lg-4 col-md-5 col-sm-4 offset-md-1 offset-sm-1 col-12 mt-4">
+          <form id="algin-form">
+              <h5>Leave a comment</h5>
+              <div class="form-group FormEelementMargin">
+                  <label for="message" class="RequiredLabel">Message</label>
+                  <textarea [formControl]='commentMessage' cols="30" rows="5" class="form-control"></textarea>
+                  <div class="invalid-feedback" ngClass='{{validateForm == true ? "ErrorMessage": ""}}' [hidden]='commentMessage.valid'>
+                    Must provide message.
+                  </div>
+              </div>
+              <div class="form-group required FormEelementMargin"><label for="email" class="RequiredLabel">Email</label>
+                <input [formControl]='authorEmail' type="text" class="form-control ">
+                <div class="invalid-feedback" ngClass='{{validateForm == true ? "ErrorMessage": ""}}' [hidden]='authorEmail.valid'>
+                  Must provide valid email.
+                </div>
+              </div>
+              <div class="form-group FormEelementMargin"><button (click)="onSendPost()" type="button" class="btn btn-primary">Post Comment</button> </div>
+          </form>
+      </div>
+  </div>
+</div>

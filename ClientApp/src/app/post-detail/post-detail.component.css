@@ -1,0 +1,48 @@
+.Hover {
+  cursor: pointer;
+}
+
+.PostTitleHolder {
+  min-height: 50px;
+  background-color:lightgray;
+}
+
+.BackBtn {
+  float: left;
+  margin-left: 6px;
+  padding-top: 5px;
+}
+
+.PostTitle {
+  margin-left: 120px;
+  padding-top: 8px;
+}
+
+.PostBody {
+  border: 1px solid lightgray;
+  padding: 10px;
+}
+
+.CommentSectionHolder {
+  margin-top: 20px;
+}
+
+.FormEelementMargin {
+  margin-top: 20px;
+}
+
+.DeleteIcon {
+  float: right;
+}
+
+.DeleteIconHover {
+  color: red;
+}
+
+.RequiredLabel::after {
+  content:"*";color:red
+}
+
+.ErrorMessage {
+  display: block;
+}

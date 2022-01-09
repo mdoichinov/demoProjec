@@ -1,0 +1,64 @@
+.TableHeader{
+    background: lightgray;
+    color: black;
+}
+
+.TableHeaderCol {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.HeaderHover {
+    background: gray;
+    color: wheat;
+}
+
+.DownArrow{
+    float: right;
+}
+
+.UpArrow{
+    float: right;
+}
+
+.Hover{
+    cursor: pointer;
+}
+
+.TableRow {
+    padding-top: 6px;
+    padding-bottom: 6px;
+    cursor: pointer;
+    border-left: 1px solid lightgray;
+    border-right: 1px solid lightgray;
+}
+
+.TableRow:hover {
+    background-color: #E2E2E2;
+}
+
+.TableEnd {
+  border-top: 1px solid lightgray;
+  height: 20px;
+}
+
+.StarIconHover{
+    color:yellow;
+}
+
+.DeleteIconHover{
+    color: red;
+}
+
+.SortingArrows{
+    font-size: 8px;
+    position: relative;
+    top: -6px;
+    left: 4px;
+}
+
+.ResetDataBtn {
+  position: fixed;
+  top: 0px;
+  right: 0px;
+}

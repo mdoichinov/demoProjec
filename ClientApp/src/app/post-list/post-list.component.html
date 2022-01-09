@@ -1,0 +1,41 @@
+<button (click)="onResetData()" type="button" class="btn btn-danger ResetDataBtn">Reset data</button>
+<div class="row TableHeader">
+  <div class="col TableHeaderCol">
+    &nbsp;
+  </div>
+  <div class="col-6 Hover TableHeaderCol" hover-class="HeaderHover" (click)='onSortByTitle()'>
+    Post Title<span class="SortingArrows"><i class="bi bi-arrow-down-square"></i>&nbsp;<i class="bi bi-arrow-up-square"></i></span>
+    <i class="bi bi-arrow-down-square DownArrow" [hidden]='this.sortByTitle == "asc" ? false: true'></i>
+    <i class="bi bi-arrow-up-square UpArrow" [hidden]='this.sortByTitle == "desc" ? false: true'></i>
+  </div>
+  <div class="col-3 Hover TableHeaderCol" hover-class="HeaderHover" (click)='onSortByAuthor()'>
+    Author<span class="SortingArrows"><i class="bi bi-arrow-down-square"></i>&nbsp;<i class="bi bi-arrow-up-square"></i></span>
+    <i class="bi bi-arrow-down-square DownArrow" [hidden]='this.sortByAuthor == "asc" ? false: true'></i>
+    <i class="bi bi-arrow-up-square UpArrow" [hidden]='this.sortByAuthor == "desc" ? false: true'></i>
+  </div>
+  <div class="col-2 TableHeaderCol">
+    # of comments
+  </div>
+  <div class="col TableHeaderCol">
+    &nbsp;
+  </div>
+</div>
+<div *ngFor='let post of postArray'  class="row TableRow">
+  <div class="col">
+    <i *ngIf='post.isFavorite' class="bi bi-star-fill StarIcon" hover-class="StarIconHover" (click)='onRemoveFavoritePost(post.id)' ></i>
+    <i *ngIf='!post.isFavorite' class="bi bi-star Hover" hover-class="StarIconHover" (click)='onAddFavoritePost(post.id)' ></i>
+  </div>
+  <div class="col-6" [routerLink]="['/post/' + post.id]">
+    {{post.postTitle}}
+  </div>
+  <div class="col-3" [routerLink]="['/post/' + post.id]">
+    {{post.authorName}}
+  </div>
+  <div class="col-2" [routerLink]="['/post/' + post.id]">
+    {{post.numberOfComments}}
+  </div>
+  <div class="col">
+    <i class="bi bi-trash Hover" hover-class="DeleteIconHover" (click)='onDeletePost(post.id)'></i>
+  </div>
+</div>
+<div class="TableEnd">&nbsp;</div>
